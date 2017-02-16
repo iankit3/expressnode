@@ -19,7 +19,7 @@ connection.start = function () {
         console.log('The solution is: ', rows[0].solution)
     })
 
-   // connection.end()
+    connection.end()
 
 }
 
