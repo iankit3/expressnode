@@ -4,6 +4,7 @@ var mysql = require('mysql')
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
+    database:'sample',
     password: settings.const.password
 })
 
@@ -13,14 +14,13 @@ connection.call = function(){
 connection.start = function () {
     connection.connect()
 
-    connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
+    connection.query('SELECT * from user where emp_ID=1', function (err, rows, fields) {
         if (err) throw err
 
-        console.log('The solution is: ', rows[0].solution)
+        console.log('The solution is: ', rows[0]);
     })
 
-    connection.end()
-
+    connection.end();
 }
 
 module.exports = {
